@@ -1,0 +1,104 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arabdoc.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Report 1993/11
+% November 22, 1993
+% Report 1998/09
+% Lagally
+% August 10, 1998
+% May 30, 1999
+% August 21, 2000
+% March 3, 2004
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the driver file for the ArabTeX 4.0 report.
+%
+% It defines the title, sets a few defaults, defines macros
+% and reads in the remaining parts of the report.
+% It also contains provisions for generating a new index
+% as this needs special handling of control sequences.
+%
+% To generate a new index:
+% run "latex newindex" (provided)
+% run "makeindx arabdoc.idn" (sic!)
+%
+% To review the index, run "latex arabind" (provided)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\documentclass[10pt,a4paper,titlepage,twoside]{report}
+\documentclass[10pt,titlepage]{report}
+
+\usepackage {latexsym}
+\usepackage {arabtex}
+\usepackage {hebtex}
+\usepackage {utf8}
+\usepackage {isiri}
+\usepackage {cp1256}
+\usepackage {iso88596}
+%\usepackage {cp1255}
+\usepackage {asmo449}
+\usepackage {hmac}
+\usepackage {amac}
+\usepackage {bhs}
+\usepackage {verses}
+%\usepackage {buck}
+
+\setarab
+\newarabfont
+
+
+\parindent 0pt  \parskip 2mm  
+\sloppy  \frenchspacing  
+\hfuzz 5pt  \hbadness 4000
+\raggedbottom
+\pagestyle {headings}
+\errorcontextlines 10
+\marginparwidth 5mm
+
+\makeindex % CAUTION! modify by hand, see above!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\input arabdmac.tex % get macro definitions
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcode {standard}
+\setarab
+\setnash
+\quiet
+
+\title {%
+\leavevmode
+%\phantom
+{DRAFT}\\[80mm]
+%\ArabTeX\\a System for Typesetting Arabic%
+\ArabTeX\\Typesetting Arabic and Hebrew%
+\thanks{Report Nr.~2004/03, Universit\"at Stuttgart,
+%\hfill \break \null \qquad
+Fakult\"at Informatik}
+%Breitwiesenstra\ss{}e 20--22,
+%70565 Stuttgart, Germany}%
+\\[4mm]
+User Manual Version 4.00%
+\thanks{This Report supersedes Reports Nr.~1992/06, 1993/11 and~1998/09}}
+
+\author {Klaus Lagally}
+%\date {November 22, 1993}
+%\date {March 3, 2004}
+
+
+\maketitle
+
+\input arabdoc0 % get the main part of report 1998/09
+
+\clearpage
+
+%\addcontentsline{toc}{section}{Index}
+
+\input arabimac.tex % print the index
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

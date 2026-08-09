@@ -1,0 +1,135 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arabdoc0.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \ArabTeX
+% a System for Typesetting Arabic
+% User Manual Version 2.05
+% Report 1992/06
+% User Manual Version 3.00
+% Report 1993/11
+% User Manual Version 4.00
+% Report 1998/09
+% Last changes: 03.03.2004
+% Klaus Lagally
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This file defines the structure of the paper
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{page}{1}
+
+%\def \abstractname {Overview}
+
+\begin{abstract}
+\ArabTeX\ is a package extending the capabilities of \TeX/\LaTeX\
+to generate the Perso-Arabic writing from an ASCII transliteration
+for texts in several languages using the Arabic script.
+It consists of a \TeX\ macro package and an Arabic font in several sizes,
+presently only available in the Naskhi style.
+\ArabTeX\ will run with Plain \TeX\ and also with \LaTeXe.
+It is compatible with Babel, CJK, LyX, the EDMAC package,
+and Pic\TeX\ (with some restrictions);
+other additions to \TeX\ may work, but have not been tried.
+
+\ArabTeX\ is primarily intended for generating the Arabic writing,
+but the standard scientific transliteration can also be easily produced.
+For languages other than Arabic that are customarily written in
+extensions of the Perso-Arabic script, some limited support is available.
+
+\ArabTeX\ defines its own input notation which is both machine, and
+human, readable, and suited for electronic transmission and
+E-Mail communication.
+However, texts in many of the Arabic standard encodings
+can also be processed.
+%
+%Starting with Version 3.02, 
+\ArabTeX\ also provides support for fully
+vowelized Hebrew, both in its private ASCII input notation and in several
+other popular encodings.
+
+\ArabTeX\ is copyrighted by the author, but free. 
+If you use the system for scientific work 
+please give appropriate credit to the software
+and the author (e.g. in the colophon of a monograph.) 
+We also	appreciate a complimentary copy 
+of any scientific work produced with \ArabTeX.
+
+\ArabTeX\ may be redistributed and/or modified under the terms
+of the LPPL (LaTeX Project Public License) distributed 
+from CTAN archives in the directory 
+\texttt{ftp://ftp.dante.de/tex-archive/macros/latex/base/lppl.txt},
+either version 1 of the License, 
+or (at your option) any later version.
+%
+There is no warranty of any kind, either expressed or implied.
+The entire risk as to the quality and performance
+rests with the user.
+                                                  \index{copyright}
+
+{\bf Please send error reports, suggestions and inquiries to the author:}
+
+\begin{quote}
+Prof. Klaus Lagally \\
+Universit\"at Stuttgart\\
+Institut f\"ur Formale Methoden der Informatik\\
+Universit\"atsstra{\ss}e 38\\
+70569 Stuttgart \\
+GERMANY
+
+{\tt lagally@informatik.uni-stuttgart.de}
+
+%\vskip 1cm
+%\vfill
+
+Copyright \copyright\ 1992--2004, Klaus Lagally
+\end{quote}
+
+%\vskip 1cm
+%\vfill
+
+\emph{Note}: 
+This manual describes version 4.00 of \ArabTeX.
+The current version 3.11 is supposed not
+to change except for error corrections.
+\end{abstract}
+
+\setcounter{page}{2}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input arabdoc1 % activating ArabTeX
+
+\input arabdoc2 % input to ArabTeX
+ 
+\input arabdoc3 % language selection
+
+\input arabdoc4 % input coding conventions
+
+\input arabdoc5 % transliteration
+
+\input arabdoc6 % support for other languages
+
+\input arabdoc7 % Hebrew mode
+
+\input arabdoc8 % miscellaneous features
+
+\input arabdoc9 % acknowledgments, references
+
+%\input arabdocp % papers
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input arabdoca % obtaining ArabTeX
+
+\input arabdocb % change history
+
+\input arabdocc % miscellaneous utilities
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
