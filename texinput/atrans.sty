@@ -6,6 +6,7 @@
 % Modern Turkish Transcription
 % Urdu Transcription
 % Uighuric Transcription
+% School of Granada Transcription
 % 14.06.2003
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % (c) Klaus Lagally
@@ -18,6 +19,9 @@
 %      Lazard                    [Philological: Gilbert Lazard, etc.]
 % (c) Adrian Rezus [adriaan@{sci,cs}.kun.nl]: Nijmegen, Nederland
 % 21.12.95
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% School of Granada transcription appended by Francisco M. Garcia
+% Olmedo, Granada, Spain (04.03.1995)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \ifx \transatcode \undefined 
@@ -399,6 +403,16 @@
 \a@message {Uyghuric~English~transliteration.}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+\catcode `\~=10
+\gdef \tr@grsch {% define School of Granada transliteration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tr@zdmg \let \@ub \underbar
+\gdef \tr@R {g} \gdef \tr@G {\^{y}}
+\gdef \tr@X {j}
+\a@message {School~of~Granada~transliteration.}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def \settrans #1{% switch the transliteration
 \lowercase {\def \tr@code {#1}\begingroup
@@ -410,7 +424,7 @@
 standard\tr@standard	zdmg\tr@standard	english\tr@encislam        
 turk\tr@turk		urdu\tr@urdu		iranica\tr@enciran
 farsi\tr@farsi		lazard\tr@lazard	kashmiri\tr@kash 
-uighur\tr@uigh 		uighure\tr@uighe }
+uighur\tr@uigh 		uighure\tr@uighe	spanish\tr@grsch }
 
 \def \tr@standard {% standard transliteration
 \ifx \tr@code \tr@oldcode \else \tr@zdmg 

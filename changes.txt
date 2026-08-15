@@ -43,9 +43,15 @@ CHANGES.TXT                                                     15.08.2026
 	  the current hook interface, while retaining its historical
 	  definitions for older formats.
 
+	New features:
+
+	- \settrans{spanish} selects the transcription convention of the
+	  School of Arabists of Granada. It inherits the ZDMG convention and
+	  renders ^g as y with a circumflex, _h as j, and .g as g.
+
 	Installation:
 
-	- replace "alatex.sty".
+	- replace "alatex.sty" and "atrans.sty".
 
 --------------------------------------------------------------------------
 02.07.2006: Version 3.11s
