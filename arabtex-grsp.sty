@@ -1,0 +1,100 @@
+%% arabtex-grsp.sty
+%% Standalone ArabTeX distribution with Granada Spanish transliteration
+%%
+%% ArabTeX was written by Klaus Lagally.
+%% The arabtex-grsp adaptation was written by Francisco M. Garcia.
+%% Copyright (c) Klaus Lagally
+%% Copyright (c) 2026 Francisco M. Garcia
+%%
+%% This work may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.3c of this license or
+%% (at your option) any later version. The latest version of this license
+%% is available at https://www.latex-project.org/lppl/.
+%%
+%% This work has the LPPL maintenance status "maintained".
+%% The Current Maintainer of this work is Francisco M. Garcia.
+%%
+%% This is a derived work. It bundles an unmodified ArabTeX runtime in a
+%% private directory; support for arabtex-grsp must not be requested from
+%% the original ArabTeX author.
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{arabtex-grsp}[2026/08/15 v1.0.0 Standalone ArabTeX with Granada transcription]
+
+\makeatletter
+
+\ifx\ar@batcode\undefined
+\else
+  \PackageError{arabtex-grsp}
+    {ArabTeX was loaded before arabtex-grsp}
+    {Load only arabtex-grsp. It supplies its own private ArabTeX runtime.}
+  \expandafter\endinput
+\fi
+
+% Locate the bundled runtime both in the source tree and after installation
+% below tex/latex/arabtex-grsp.
+\IfFileExists{arabtex-grsp/vendor/texinput/arabtex-grsp-runtime.sty}{%
+  \def\atgrsp@vendordir{arabtex-grsp/vendor/texinput/}%
+}{%
+  \IfFileExists{vendor/texinput/arabtex-grsp-runtime.sty}{%
+    \def\atgrsp@vendordir{vendor/texinput/}%
+  }{%
+    \PackageError{arabtex-grsp}
+      {The bundled ArabTeX runtime was not found}
+      {Install the complete arabtex-grsp distribution, including vendor/texinput.}%
+    \expandafter\endinput
+  }%
+}
+
+% ArabTeX loads its modules by their historical bare names. Put the private
+% directory first and retain it because apatch.sty is loaded a second time at
+% \begin{document}.
+\ifx\input@path\undefined
+  \let\input@path\@empty
+\fi
+\edef\atgrsp@savedinputpath{\input@path}
+\edef\input@path{{\atgrsp@vendordir}\atgrsp@savedinputpath}
+
+% Save the kernel environment commands before the historical runtime replaces
+% them, then load the bundled driver explicitly rather than an installed copy.
+\let\atgrsp@latex@begin\begin
+\let\atgrsp@latex@end\end
+\expandafter\let\expandafter\atgrsp@packageversion
+  \csname ver@arabtex-grsp.sty\endcsname
+\let\atgrsp@currname\@currname
+\let\atgrsp@currext\@currext
+\def\@currname{arabtex}
+\def\@currext{sty}
+\expandafter\input\expandafter{\atgrsp@vendordir arabtex-grsp-runtime.sty}
+% Font description lookup does not honor the module loader. Preload the
+% bundled descriptions so NFSS cannot select identically named upstream files.
+\expandafter\input\expandafter{\atgrsp@vendordir Uxnsh.fd}
+\expandafter\input\expandafter{\atgrsp@vendordir unash.fd}
+\expandafter\input\expandafter{\atgrsp@vendordir uheb.fd}
+\let\@currname\atgrsp@currname
+\let\@currext\atgrsp@currext
+\expandafter\let\csname ver@arabtex-grsp.sty\endcsname
+  \atgrsp@packageversion
+
+% ArabTeX copies the 2003 definitions of \begin and \end. Modern LaTeX needs
+% its kernel definitions to execute package hooks at the top level. Retain the
+% historical behavior on formats that predate the hook interface.
+\ifx\IfFormatAtLeastTF\undefined
+\else
+  \let\begin\atgrsp@latex@begin
+  \let\end\atgrsp@latex@end
+\fi
+
+% School of Granada transcription, contributed by Francisco M. Garcia. It
+% inherits ZDMG and changes only the three convention-specific letters.
+\gdef\tr@grsch{%
+  \tr@zdmg
+  \gdef\tr@R{g}% .g
+  \gdef\tr@G{\^{y}}% ^g
+  \gdef\tr@X{j}% _h
+  \a@message{School of Granada transliteration.}%
+}
+\g@addto@macro\tr@table{spanish\tr@grsch}
+
+\makeatother
+\endinput

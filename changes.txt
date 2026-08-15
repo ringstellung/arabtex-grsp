@@ -1,4 +1,4 @@
-CHANGES.TXT                                                     15.08.2026
+CHANGES.TXT                                                     02.07.2006
 --------------------------------------------------------------------------
                              ArabTeX Version 3
                              =================
@@ -33,27 +33,6 @@ CHANGES.TXT                                                     15.08.2026
 	  you should have good reasons, and there will be no support.
         
 ==========================================================================
-15.08.2026: Modern LaTeX compatibility
-
-	Fixes:
-
-	- Modern LaTeX package hooks no longer fail at \begin{document}
-	  with "Loading a class or package in a group". ArabTeX now keeps
-	  the kernel definitions of \begin and \end when the format provides
-	  the current hook interface, while retaining its historical
-	  definitions for older formats.
-
-	New features:
-
-	- \settrans{spanish} selects the transcription convention of the
-	  School of Arabists of Granada. It inherits the ZDMG convention and
-	  renders ^g as y with a circumflex, _h as j, and .g as g.
-
-	Installation:
-
-	- replace "alatex.sty" and "atrans.sty".
-
---------------------------------------------------------------------------
 02.07.2006: Version 3.11s
 
 	Fixes:
@@ -2456,3 +2435,4 @@ CHANGES.TXT                                                     15.08.2026
 --------------------------------------------------------------------------
 	Copyright (c) 1990 - 2006, Klaus Lagally
 --------------------------------------------------------------------------
+

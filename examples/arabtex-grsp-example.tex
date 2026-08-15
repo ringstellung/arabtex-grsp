@@ -1,0 +1,25 @@
+% Copyright (c) 2026 Francisco M. Garcia
+% Distributed under the LPPL, version 1.2 or (at your option) any later version.
+
+\documentclass{article}
+
+\usepackage{arabtex-grsp}
+\usepackage{graphicx}
+
+\begin{document}
+
+\setarab
+\settrans{spanish}
+
+\begin{center}
+  \begin{tabular}{c|c}
+    Example & Output \\
+    \hline
+    Arabic rendering & \arabtrue\transtrue\RL{al-`arabiyya} \\
+    \texttt{\string^g} & \arabfalse\transtrue\RL{^g} \\
+    \texttt{\string_h} & \arabfalse\transtrue\RL{_h} \\
+    \texttt{.g} & \arabfalse\transtrue\RL{.g}
+  \end{tabular}
+\end{center}
+
+\end{document}

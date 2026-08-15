@@ -1,0 +1,14 @@
+arabtex-grsp.sty
+README.md
+CHANGELOG.md
+MANIFEST
+Makefile
+lppl.txt
+examples/arabtex-grsp-example.tex
+vendor/README.md
+vendor/ORIGINAL_README.txt
+vendor/texinput/*
+vendor/tfm/*
+vendor/type1/*
+vendor/metafont/*
+vendor/map/*
