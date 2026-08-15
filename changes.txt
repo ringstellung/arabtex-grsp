@@ -1,4 +1,4 @@
-CHANGES.TXT                                                     02.07.2006
+CHANGES.TXT                                                     15.08.2026
 --------------------------------------------------------------------------
                              ArabTeX Version 3
                              =================
@@ -33,6 +33,21 @@ CHANGES.TXT                                                     02.07.2006
 	  you should have good reasons, and there will be no support.
         
 ==========================================================================
+15.08.2026: Modern LaTeX compatibility
+
+	Fixes:
+
+	- Modern LaTeX package hooks no longer fail at \begin{document}
+	  with "Loading a class or package in a group". ArabTeX now keeps
+	  the kernel definitions of \begin and \end when the format provides
+	  the current hook interface, while retaining its historical
+	  definitions for older formats.
+
+	Installation:
+
+	- replace "alatex.sty".
+
+--------------------------------------------------------------------------
 02.07.2006: Version 3.11s
 
 	Fixes:
@@ -2435,4 +2450,3 @@ CHANGES.TXT                                                     02.07.2006
 --------------------------------------------------------------------------
 	Copyright (c) 1990 - 2006, Klaus Lagally
 --------------------------------------------------------------------------
-

@@ -15,6 +15,7 @@
 %%%%%%%%%%%%%%%%%%% modify \document command %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \let \a@document \document	\let \a@enddocument \enddocument
+\let \a@latex@begin \begin	\let \a@latex@end \end
 
 \def \document {% activate Arabic insertions
 	\a@document \setarab } 
@@ -102,13 +103,19 @@
 
 %%%%%%%%%%%%%%%%%%%%% inner environments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Current LaTeX kernels attach hooks to \begin and \end.  In particular,
+% \begin{document} relies on the kernel implementation to run package hooks
+% at the top group level.  Keep the old ArabTeX copies only for kernels which
+% predate the hook interface.
+\def \a@c@@doendpe {% called in Arabic mode
+\@doendpe \test@token }
+
+\ifx \IfFormatAtLeastTF \undefined
+
 \def \end #1{% modified LaTeX version: tail supplied by \begin
   \csname end#1\endcsname \@checkend {#1}%
 \if@endpe \aftergroup \@doendpe \fi 
 \endgroup }
-
-\def \a@c@@doendpe {% called in Arabic mode
-\@doendpe \test@token }
 
 \def \begin #1{% from LaTeX2e; after \end stay in Roman mode
 \@ifundefined {#1}%
@@ -118,6 +125,11 @@
 			\csname #1\endcsname }}%
 \@ignorefalse \begingroup \aftergroup \a@endx
 \@endpefalse \reserved@a }
+
+\else
+\let \begin \a@latex@begin
+\let \end \a@latex@end
+\fi
 
 \def \a@endx {% after \end in Roman mode
 \if@ignore \@ignorefalse \ignorespaces \fi}
