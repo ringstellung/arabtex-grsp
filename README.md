@@ -62,6 +62,8 @@ mappings:
 | `.g` | `g` |
 
 See `examples/arabtex-granada-example.tex` for a complete document.
+The package guide is available as `arabtex-granada-doc.pdf`, with its editable
+LaTeX source in `arabtex-granada-doc.tex`.
 
 ## Building the CTAN upload
 
@@ -71,7 +73,7 @@ Run:
 make build
 ```
 
-This creates `dist/arabtex-granada.zip`. The Makefile stages only the files in
+This builds the PDF guide and creates `dist/arabtex-granada.zip`. The Makefile stages only the files in
 the new distribution, puts them below the required top-level
 `arabtex-granada/` directory, and runs `unzip -t` to verify the archive. Use
 `make clean` to remove generated build and distribution directories.

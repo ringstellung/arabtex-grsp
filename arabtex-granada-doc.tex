@@ -1,0 +1,99 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{geometry}
+\usepackage{url}
+\geometry{margin=27mm}
+
+\title{arabtex-granada\\[3pt]\large Package guide}
+\author{Francisco M. Garc\'ia}
+\date{Version 1.0.0 \quad 15 August 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+\texttt{arabtex-granada} is a self-contained adaptation of Klaus Lagally's
+ArabTeX. It preserves the historical Arabic typesetting runtime and adds the
+transcription convention used by the School of Arabists of Granada. This guide
+covers the new package; it is not a replacement for the original ArabTeX manual.
+\end{abstract}
+
+\section{Quick start}
+
+Load the package, select Arabic text, then select the Granada transcription:
+
+\begin{verbatim}
+\documentclass{article}
+\usepackage{arabtex-granada}
+\begin{document}
+\setarab
+\settrans{spanish}
+\arabtrue\transtrue\RL{al-`arabiyya}
+\end{document}
+\end{verbatim}
+
+The package renders transliterated ArabTeX input as Arabic script and, when
+transcription is enabled, as a Latin transcription. For a complete example
+demonstrating each changed Granada mapping, see
+\begin{center}
+\path{examples/arabtex-granada-example.tex}
+\end{center}
+
+\section{Granada transcription}
+
+\verb|\settrans{spanish}| starts with ArabTeX's ZDMG transcription and changes
+only the following input-to-output mappings:
+
+\begin{center}
+\begin{tabular}{ll}
+\textbf{ArabTeX input} & \textbf{Granada transcription} \\
+\hline
+\verb|^g| & \^{y} \\
+\verb|_h| & j \\
+\verb|.g| & g
+\end{tabular}
+\end{center}
+
+This option changes transcription, not the underlying Arabic input syntax.
+For ArabTeX's full input notation and commands, consult the upstream ArabTeX
+documentation at \url{https://ctan.org/pkg/arabtex}.
+
+\section{Installation}
+
+The CTAN archive includes the package entry point, private ArabTeX runtime,
+font metrics, Type 1 fonts, Metafont sources, and \texttt{arabtex.map}. The
+upstream \texttt{arabtex} CTAN package is not a dependency and should not be
+loaded alongside this package.
+
+For manual installation, place \path{arabtex-granada.sty} and
+\path{vendor/texinput/} in \path{tex/latex/arabtex-granada/}.
+Install each bundled font directory under the matching TeX Directory
+Structure \path{fonts/} category: metrics in \path{tfm/}, Type 1 fonts in
+\path{type1/}, Metafont sources in \path{source/}, and the map in
+\path{map/dvips/}. See \path{README.md} for the exact destination paths.
+Refresh the filename database and enable \texttt{arabtex.map} using your TeX
+distribution's tools. TeX Live and MiKTeX installations normally handle
+these steps automatically.
+
+If a local PDF build reports a missing ArabTeX font or font map, check that
+the bundled metrics and Type 1 fonts are visible and that
+\texttt{arabtex.map} is enabled. LaTeX source parsing alone does not prove
+that PDF font embedding succeeded.
+
+\section{Compatibility and provenance}
+
+The adaptation preserves modern LaTeX kernel definitions of
+\verb|\begin| and \verb|\end| while loading the historical ArabTeX runtime.
+This avoids package-hook failures when another package is loaded at the start
+of the document. On older LaTeX formats without the modern hook interface,
+ArabTeX's historical environment behavior remains in place.
+
+Klaus Lagally authored the original ArabTeX distribution. Francisco M.
+Garc\'ia maintains this adaptation and its Granada convention. The bundled
+original files retain their authorship and history; see
+\path{vendor/README.md} and \path{vendor/ORIGINAL_README.txt}.
+This derived work is distributed under LPPL version 1.3c or later; see
+\texttt{lppl.txt}. Problems with this adaptation should be reported to its
+maintainer, not to the original ArabTeX author.
+
+\end{document}
