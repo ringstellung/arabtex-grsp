@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%% arabtex-grsp-runtime.sty %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% arabtex-granada-runtime.sty %%%%%%%%%%%%%%%%%%%%%%%
 % Derived from arabtex.sty by Francisco M. Garcia, 15.08.2026.
 % Renamed and modified under LPPL 1.3c to use the private runtime loader.
 % this is the driver module for the ArabTeX macro package
@@ -48,7 +48,7 @@ This might utterly confuse ArabTeX which is therefore not loaded.^^J
 %%%%%%%%%%%%%%%%%%%% identify yourself %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\expandafter\input\expandafter{\atgrsp@vendordir arabtex-grsp-config.sty}
+\expandafter\input\expandafter{\atgranada@vendordir arabtex-granada-config.sty}
 % check environment and install the private module loader
 
 \let \a@wlog \wlog        	\def \wlog #1{\relax }
@@ -605,7 +605,7 @@ This might utterly confuse ArabTeX which is therefore not loaded.^^J
   \UsePackage {arababel} \fi\fi   % patches for old BABEL ?
 \ifx \CJK \undefined \else
   \UsePackage {acjk} \fi          % patches for CJK ?
-\UsePackage {arabtex-grsp-patch}  % private last minute corrections
+\UsePackage {arabtex-granada-patch}  % private last minute corrections
 
 %%%%%%%%%%%%%%%%%%%%%%% statistics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

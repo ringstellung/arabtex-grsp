@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% arabtex-grsp-config.sty
+% arabtex-granada-config.sty
 % Derived from aconfig.sty by Francisco M. Garcia, 15.08.2026.
 % Renamed and modified under LPPL 1.3c to force private module loading.
 % determine the configuration for ArabTeX
@@ -47,12 +47,12 @@
 
 % Always resolve historical modules inside the bundled tree, even when an
 % upstream ArabTeX installation appears earlier in TEXINPUTS.
-\ifx\atgrsp@vendordir\undefined
+\ifx\atgranada@vendordir\undefined
 \else
   \def\UsePackage#1{%
     \def\@currname{#1}%
     \def\@currext{sty}%
-    \expandafter\input\expandafter{\atgrsp@vendordir#1.sty}%
+    \expandafter\input\expandafter{\atgranada@vendordir#1.sty}%
   }%
 \fi
 

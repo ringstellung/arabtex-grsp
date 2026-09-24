@@ -1,10 +1,10 @@
-arabtex-grsp.sty
+arabtex-granada.sty
 README.md
 CHANGELOG.md
 MANIFEST
 Makefile
 lppl.txt
-examples/arabtex-grsp-example.tex
+examples/arabtex-granada-example.tex
 vendor/README.md
 vendor/ORIGINAL_README.txt
 vendor/texinput/*

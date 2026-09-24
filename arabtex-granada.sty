@@ -1,8 +1,8 @@
-%% arabtex-grsp.sty
+%% arabtex-granada.sty
 %% Standalone ArabTeX distribution with Granada Spanish transliteration
 %%
 %% ArabTeX was written by Klaus Lagally.
-%% The arabtex-grsp adaptation was written by Francisco M. Garcia.
+%% The arabtex-granada adaptation was written by Francisco M. Garcia.
 %% Copyright (c) Klaus Lagally
 %% Copyright (c) 2026 Francisco M. Garcia
 %%
@@ -15,33 +15,33 @@
 %% The Current Maintainer of this work is Francisco M. Garcia.
 %%
 %% This is a derived work. It bundles an unmodified ArabTeX runtime in a
-%% private directory; support for arabtex-grsp must not be requested from
+%% private directory; support for arabtex-granada must not be requested from
 %% the original ArabTeX author.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{arabtex-grsp}[2026/08/15 v1.0.0 Standalone ArabTeX with Granada transcription]
+\ProvidesPackage{arabtex-granada}[2026/08/15 v1.0.0 Standalone ArabTeX with Granada transcription]
 
 \makeatletter
 
 \ifx\ar@batcode\undefined
 \else
-  \PackageError{arabtex-grsp}
-    {ArabTeX was loaded before arabtex-grsp}
-    {Load only arabtex-grsp. It supplies its own private ArabTeX runtime.}
+  \PackageError{arabtex-granada}
+    {ArabTeX was loaded before arabtex-granada}
+    {Load only arabtex-granada. It supplies its own private ArabTeX runtime.}
   \expandafter\endinput
 \fi
 
 % Locate the bundled runtime both in the source tree and after installation
-% below tex/latex/arabtex-grsp.
-\IfFileExists{arabtex-grsp/vendor/texinput/arabtex-grsp-runtime.sty}{%
-  \def\atgrsp@vendordir{arabtex-grsp/vendor/texinput/}%
+% below tex/latex/arabtex-granada.
+\IfFileExists{arabtex-granada/vendor/texinput/arabtex-granada-runtime.sty}{%
+  \def\atgranada@vendordir{arabtex-granada/vendor/texinput/}%
 }{%
-  \IfFileExists{vendor/texinput/arabtex-grsp-runtime.sty}{%
-    \def\atgrsp@vendordir{vendor/texinput/}%
+  \IfFileExists{vendor/texinput/arabtex-granada-runtime.sty}{%
+    \def\atgranada@vendordir{vendor/texinput/}%
   }{%
-    \PackageError{arabtex-grsp}
+    \PackageError{arabtex-granada}
       {The bundled ArabTeX runtime was not found}
-      {Install the complete arabtex-grsp distribution, including vendor/texinput.}%
+      {Install the complete arabtex-granada distribution, including vendor/texinput.}%
     \expandafter\endinput
   }%
 }
@@ -52,37 +52,37 @@
 \ifx\input@path\undefined
   \let\input@path\@empty
 \fi
-\edef\atgrsp@savedinputpath{\input@path}
-\edef\input@path{{\atgrsp@vendordir}\atgrsp@savedinputpath}
+\edef\atgranada@savedinputpath{\input@path}
+\edef\input@path{{\atgranada@vendordir}\atgranada@savedinputpath}
 
 % Save the kernel environment commands before the historical runtime replaces
 % them, then load the bundled driver explicitly rather than an installed copy.
-\let\atgrsp@latex@begin\begin
-\let\atgrsp@latex@end\end
-\expandafter\let\expandafter\atgrsp@packageversion
-  \csname ver@arabtex-grsp.sty\endcsname
-\let\atgrsp@currname\@currname
-\let\atgrsp@currext\@currext
+\let\atgranada@latex@begin\begin
+\let\atgranada@latex@end\end
+\expandafter\let\expandafter\atgranada@packageversion
+  \csname ver@arabtex-granada.sty\endcsname
+\let\atgranada@currname\@currname
+\let\atgranada@currext\@currext
 \def\@currname{arabtex}
 \def\@currext{sty}
-\expandafter\input\expandafter{\atgrsp@vendordir arabtex-grsp-runtime.sty}
+\expandafter\input\expandafter{\atgranada@vendordir arabtex-granada-runtime.sty}
 % Font description lookup does not honor the module loader. Preload the
 % bundled descriptions so NFSS cannot select identically named upstream files.
-\expandafter\input\expandafter{\atgrsp@vendordir Uxnsh.fd}
-\expandafter\input\expandafter{\atgrsp@vendordir unash.fd}
-\expandafter\input\expandafter{\atgrsp@vendordir uheb.fd}
-\let\@currname\atgrsp@currname
-\let\@currext\atgrsp@currext
-\expandafter\let\csname ver@arabtex-grsp.sty\endcsname
-  \atgrsp@packageversion
+\expandafter\input\expandafter{\atgranada@vendordir Uxnsh.fd}
+\expandafter\input\expandafter{\atgranada@vendordir unash.fd}
+\expandafter\input\expandafter{\atgranada@vendordir uheb.fd}
+\let\@currname\atgranada@currname
+\let\@currext\atgranada@currext
+\expandafter\let\csname ver@arabtex-granada.sty\endcsname
+  \atgranada@packageversion
 
 % ArabTeX copies the 2003 definitions of \begin and \end. Modern LaTeX needs
 % its kernel definitions to execute package hooks at the top level. Retain the
 % historical behavior on formats that predate the hook interface.
 \ifx\IfFormatAtLeastTF\undefined
 \else
-  \let\begin\atgrsp@latex@begin
-  \let\end\atgrsp@latex@end
+  \let\begin\atgranada@latex@begin
+  \let\end\atgranada@latex@end
 \fi
 
 % School of Granada transcription, contributed by Francisco M. Garcia. It

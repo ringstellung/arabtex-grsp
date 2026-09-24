@@ -1,10 +1,10 @@
 SHELL := /bin/sh
 
-PACKAGE := arabtex-grsp
+PACKAGE := arabtex-granada
 BUILD_ROOT := build/ctan
 DIST_DIR := dist
 ARCHIVE := $(DIST_DIR)/$(PACKAGE).zip
-PACKAGE_FILES := arabtex-grsp.sty README.md CHANGELOG.md MANIFEST Makefile lppl.txt
+PACKAGE_FILES := arabtex-granada.sty README.md CHANGELOG.md MANIFEST Makefile lppl.txt
 
 .PHONY: all build ctan clean
 
@@ -19,7 +19,7 @@ ctan:
 	rm -rf "$(BUILD_ROOT)/$(PACKAGE)" "$(ARCHIVE)"
 	mkdir -p "$(BUILD_ROOT)/$(PACKAGE)/examples" "$(DIST_DIR)"
 	cp $(PACKAGE_FILES) "$(BUILD_ROOT)/$(PACKAGE)/"
-	cp examples/arabtex-grsp-example.tex "$(BUILD_ROOT)/$(PACKAGE)/examples/"
+	cp examples/arabtex-granada-example.tex "$(BUILD_ROOT)/$(PACKAGE)/examples/"
 	cp -R vendor "$(BUILD_ROOT)/$(PACKAGE)/"
 	cd "$(BUILD_ROOT)" && zip -q -r "../../$(ARCHIVE)" "$(PACKAGE)"
 	unzip -tq "$(ARCHIVE)"

@@ -1,6 +1,11 @@
 # Changelog
 
-All notable changes to `arabtex-grsp` are documented here.
+All notable changes to `arabtex-granada` are documented here.
+
+## Unreleased
+
+- Renamed the public project, LaTeX package, private derived loaders, example,
+  and CTAN upload archive from `arabtex-grsp` to `arabtex-granada`.
 
 ## 1.0.0 - 2026-08-15
 

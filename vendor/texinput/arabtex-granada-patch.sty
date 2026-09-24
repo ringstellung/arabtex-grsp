@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% arabtex-grsp-patch.sty
+% arabtex-granada-patch.sty
 % Derived from apatch.sty by Francisco M. Garcia, 15.08.2026.
 % Renamed and modified under LPPL 1.3c to keep both patching passes private.
 % last minute corrections
@@ -38,7 +38,7 @@
 \ifx \a@patchlevel \undefined % first patching run
 \let \a@@@document \a@document
 \a@extend \document {\setnone
-  \expandafter\input\expandafter{\atgrsp@vendordir arabtex-grsp-patch.sty}}
+  \expandafter\input\expandafter{\atgranada@vendordir arabtex-granada-patch.sty}}
 \else % second pass after loading all modules
 \let \a@document \a@@@document
 \fi\fi
@@ -2385,7 +2385,7 @@ $${\par }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\expandafter\input\expandafter{\atgrsp@vendordir alocal.sty}% local patches!
+\expandafter\input\expandafter{\atgranada@vendordir alocal.sty}% local patches!
 % must be idempotent!
 
 \ifx \a@patchlevel \undefined % first patching run
